@@ -1,0 +1,20 @@
+{
+  "name": "devtinder-nodejs",
+  "version": "1.0.0",
+  "description": "tinder for devs",
+  "keywords": [
+    "nodejs",
+    "js"
+  ],
+  "license": "ISC",
+  "author": "udaylakshmi",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon src/app.js",
+    "dev":"nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
