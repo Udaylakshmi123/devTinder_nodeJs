@@ -2,14 +2,24 @@ const express = require("express");
 
 const app= express();
 
-app.use("/test",(req,res)=>{
-    res.send("Hello from the server")
+app.get("/user",(req,res)=>{
+    res.send("Fetched data successfully")
 })
-// app.use("/",(req,res)=>{
-//     res.send('Welcome to Dashboard')
-// })
-app.use("/home",(req,res)=>{
-    res.send("Welcome to Home")
+
+app.post("/user",(req,res)=>{
+    res.send("User Successfully Saved")
+})
+
+app.put("/user",(req,res)=>{
+    res.send("Updated User Successfully")
+})
+
+app.delete("/user",(req,res)=>{
+    res.send("Deleted User Successfully")
+})
+
+app.patch("/user",(req,res)=>{
+    res.send("User Patched Successfully")
 })
 
 app.listen(3000, ()=>{
