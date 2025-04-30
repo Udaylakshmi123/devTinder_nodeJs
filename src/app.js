@@ -2,7 +2,24 @@ const express = require("express");
 
 const app= express();
 
-app.get("/user",(req,res)=>{
+const {adminAuth} = require("./middlewares/auth");
+
+app.use("/admin",adminAuth);
+
+app.get("/admin/getAllData",(req,res)=>{
+    res.send("Got all data")
+})
+
+app.post("/admin/insertData",(req,res)=>{
+    res.send("Inserted data")
+})
+
+app.get('/a{b}c',(req,res)=>{
+    res.send("Optional chaining")
+})
+
+app.get("/user/:id/:password",(req,res)=>{
+    console.log(req.query,req.params)
     res.send("Fetched data successfully")
 })
 
@@ -20,6 +37,12 @@ app.delete("/user",(req,res)=>{
 
 app.patch("/user",(req,res)=>{
     res.send("User Patched Successfully")
+})
+
+app.use("/",(err,req,res,next)=>{
+    if(err){
+        res.status(500).send("Something Went wrong")
+    }
 })
 
 app.listen(3000, ()=>{
